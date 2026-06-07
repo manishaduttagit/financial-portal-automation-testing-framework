@@ -1,4 +1,4 @@
-# Web Automation Testing Framework
+# Financial Portal Automation Testing Framework
 
 A professional UI automation testing framework built from scratch using **Python**, **Selenium WebDriver**, and **Pytest**. This project implements the **Page Object Model (POM)** design pattern to ensure scalable, maintainable, and robust test execution.
 

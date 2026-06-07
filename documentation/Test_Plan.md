@@ -1,4 +1,4 @@
-# Test Automation Plan: Enterprise E-Commerce Platform
+# Test Automation Plan: Financial Portal Testing Framework
 
 ## 1. Objective & Scope
 The objective of this framework is to deliver robust, scalable regression testing for core e-commerce user journeys. 
