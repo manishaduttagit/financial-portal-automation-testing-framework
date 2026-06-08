@@ -36,3 +36,20 @@ class OnboardingPage:
         """Captures registration or age verification constraint errors."""
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.error_container))
         return self.driver.find_element(*self.error_container).text
+
+        
+        
+    def get_calculated_total(self):
+        """
+        Extracts the dynamic final calculation total from the interface.
+        Cleans the string data so it can be verified mathematically.
+        """
+        total_locator = (By.CLASS_NAME, "summary_total_label")
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(total_locator))
+        
+        # Retrieves text like "Total: $32.39"
+        raw_total_text = self.driver.find_element(*total_locator).text
+        
+        # Cleans out the text to isolate just the numeric value
+        numeric_value = raw_total_text.replace("Total: $", "").strip()
+        return float(numeric_value)
