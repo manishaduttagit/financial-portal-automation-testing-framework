@@ -1,25 +1,23 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture(scope="function")
 def driver():
     """
-    Fixture to initialize the WebDriver before a test 
-    and tear it down completely after the test finishes.
+    Pytest fixture to initialize and tear down the Selenium WebDriver asset.
+    Using scope='function' ensures a clean, fresh browser window for every single test case.
     """
-    print("\n--- Initializing Chrome Browser ---")
+    # 1. Setup Chrome options (e.g., maximizing the window for consistent UI element tracking)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
     
-    # Starts the Chrome browser session
-    driver = webdriver.Chrome()
+    # 2. Automatically manage and initialize the Chrome driver binaries
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     
-    # Standard engineering practices: maximize window and wait up to 10 seconds for elements to load
-    driver.maximize_window()
-    driver.implicitly_wait(10)
-    
-    # This passes the browser over to our test scripts
+    # 3. Yield control to the test case execution loop
     yield driver
     
-    # Teardown phase: Closes the browser safely after the test runs
-    print("\n--- Closing Chrome Browser ---")
+    # 4. Teardown: Safely quit the browser session after the test finishes to free up MacBook memory
     driver.quit()
