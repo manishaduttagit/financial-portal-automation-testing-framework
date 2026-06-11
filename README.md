@@ -1,14 +1,17 @@
-## 📸 Automated Execution Documentation
+# 📊 Enterprise Financial Portal Test Automation Framework
 
-The framework is engineered with a custom post-test lifecycle hook inside `conftest.py`. At the conclusion of every test case execution, the engine automatically captures the current visual state of the browser and logs it to a structured `/screenshots` directory for audit trailing.
+A production-grade, highly resilient end-to-end test automation ecosystem engineered from the ground up to validate critical user journeys, transaction flows, and high-integrity data parsing engines for digital financial applications.
 
-### Core Login Verification (TC-001)
-> Automatically capturing successful landing page state transitions:
->
-![Successful Login Execution](screenshots/test_ui_001_successful_login.png)
+---
 
-### Dynamic Dashboard Network Asset Auditing (TC-009)
-> Proving backend link stability alongside UI responsiveness:
+## 🛠️ Core Engineering & Architectural Competencies
+
+*   **Asynchronous Resiliency:** Developed with explicit synchronization models (`WebDriverWait`) paired with custom `expected_conditions` validation loops, optimizing runtime down to a **79-second full-suite completion** and eliminating environment-induced test flakiness.
+*   **Hybrid Network Integrity Layer:** Combines front-end DOM element manipulation with a concurrent API network audit script utilizing the Python `requests` library to instantly identify and flag broken UI graphics or dead hyperlinks.
+*   **Data Validation Boundary Testing:** Leverages strict Boundary Value Analysis (BVA) matrices to verify input state boundaries and programmatically confirm that text objects padded with leading or trailing whitespaces are properly sanitized and trimmed.
+*   **Environmental & Session Adaptation:** Configured to dynamically manage cross-tab domain handshakes (`driver.window_handles`) and scale presentation viewports to precise high-fidelity layout breakpoints ($375 \times 667$).
+
+---
 
 ## 🏗️ System Architecture Blueprint
 
@@ -37,23 +40,19 @@ graph TD
 
     %% Internal Framework Verification Layers
     subgraph Multi_Layer_Validation_Engine ["Multi-Layer Validation Engine"]
-        %% UI Resiliency
         D1 --> E1[Asynchronous Resiliency Layer]
         E1 -->|Polling Loops| F1[WebDriverWait + Expected Conditions]
         F1 -->|Asserts| G1[Dynamic DOM State]
         
-        %% Data Integrity
         D2 --> E2[Data Integrity Layer]
         E2 -->|BVA Input Sanitization| F2[Automated Whitespace Trimming]
         E2 -->|Math Precision| F3[Floating-Point Text Array Sorting]
         
-        %% Hybrid API
         D3 --> E3[Hybrid API / Network Layer]
         E3 -->|DOM Scraper| F4[Extract Asset Image / Link Source URLs]
         F4 -->|Programmatic Intercept| F5[Python Requests Library]
         F5 -->|Background Network Ping| G5[Assert 200 OK Status Codes]
         
-        %% Environmental
         D3 --> E4[Environmental Scaling Layer]
         E4 -->|Viewport Resize| F6[Mobile Breakpoint Scaling 375x667]
         E4 -->|Window Handles| F7[Cross-Tab Secure Domain Switching]
